@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Resume</title>
+  <style>html,body{height:100%;margin:0}iframe{position:fixed;top:0;left:0;width:100%;height:100%;border:0}</style>
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(location.search);
+  const pdf = params.get('pdf') || 'BandiVenuResume.pdf';
+  const title = params.get('title') || 'Resume';
+  try { document.title = decodeURIComponent(title); } catch(e) { document.title = title; }
+  const iframe = document.createElement('iframe');
+  iframe.src = pdf;
+  iframe.setAttribute('allowfullscreen','');
+  document.body.appendChild(iframe);
+</script>
+</body>
+</html>
